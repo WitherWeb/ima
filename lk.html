@@ -533,18 +533,20 @@
     <span class="lk-modal-checking__deskr">Введите код отправленный на:</span>
     <span class="lk-modal-checking__email">qwerty@ya.ru</span>
     <div class="otp-container">
-      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" onkeypress="return isNumberKey(event)" class="ap-otp-input">
-      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" onkeypress="return isNumberKey(event)" class="ap-otp-input">
-      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" onkeypress="return isNumberKey(event)" class="ap-otp-input">
-      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" onkeypress="return isNumberKey(event)" class="ap-otp-input">
-      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" onkeypress="return isNumberKey(event)" class="ap-otp-input">
-      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" onkeypress="return isNumberKey(event)" class="ap-otp-input">
+      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" data-number-input class="ap-otp-input">
+      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" data-number-input class="ap-otp-input">
+      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" data-number-input class="ap-otp-input">
+      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" data-number-input class="ap-otp-input">
+      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" data-number-input class="ap-otp-input">
+      <input type="number" maxlength="1" oninput="maxLengthCheck(this)" data-number-input class="ap-otp-input">
 
       <script>
-        function isNumberKey(evt) {
-  var charCode = (evt.which) ? evt.which : evt.keyCode;
-  return !(charCode > 31 && (charCode < 48 || charCode > 57));
-}
+  document.querySelectorAll('[data-number-input]').forEach(function(input) {
+            input.addEventListener('input', function (e) {
+                var value = e.target.value;
+                e.target.value = value.replace(/[^0-9]/g, '');
+            });
+        });
         function maxLengthCheck(object) {
   if (object.value.length > object.maxLength)
     object.value = object.value.slice(0, object.maxLength) // Важно: достигли предела!
