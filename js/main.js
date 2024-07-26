@@ -224,6 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
       $.fancybox.close();
     });
   });
+  document.querySelector('.lk-entrance__submit').addEventListener("click", () => {
+    document.querySelector('.ap-otp-input').click();
+  });
   const inputs = document.querySelectorAll('.ap-otp-input');
   inputs.forEach((input, index) => {
     input.addEventListener('paste', function (ev) {
