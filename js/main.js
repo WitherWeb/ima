@@ -225,7 +225,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   document.querySelector('.lk-entrance__submit').addEventListener("click", () => {
-    document.querySelector('.ap-otp-input').click();
+    setTimeout(function () {
+      console.log('dwa');
+      document.querySelector('.ap-otp-input').click();
+    }, 5000);
   });
   const inputs = document.querySelectorAll('.ap-otp-input');
   inputs.forEach((input, index) => {
