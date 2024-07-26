@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('.lk-entrance__submit').addEventListener("click", () => {
     setTimeout(function () {
       console.log('dwa');
-      document.querySelector('.ap-otp-input').click();
+      document.querySelector('.ap-otp-input').focus();
     }, 5000);
   });
   const inputs = document.querySelectorAll('.ap-otp-input');
