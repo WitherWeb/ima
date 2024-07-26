@@ -225,10 +225,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   document.querySelector('.lk-entrance__submit').addEventListener("click", () => {
+    var input = document.querySelector('.ap-otp-input');
+
+    // Обрезаем значение и восстанавливаем фокус для Safari
+    input.value = '';
+    input.style.visibility = 'hidden';
+    input.focus();
     setTimeout(function () {
-      console.log('dwa');
-      document.querySelector('.ap-otp-input').focus();
-    }, 5000);
+      input.style.visibility = 'visible';
+      input.focus();
+    }, 50);
   });
   const inputs = document.querySelectorAll('.ap-otp-input');
   inputs.forEach((input, index) => {
