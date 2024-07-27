@@ -157,7 +157,7 @@ console.log("start");
 swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation, swiper__WEBPACK_IMPORTED_MODULE_0__.Pagination, swiper__WEBPACK_IMPORTED_MODULE_0__.FreeMode]);
 document.addEventListener("DOMContentLoaded", () => {
   const lkSwiperCourse = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".lk-swiper", {
-    slidesPerView: 4,
+    slidesPerView: 6.3,
     spaceBetween: 30,
     watchSlidesProgress: true,
     loop: true,
@@ -224,12 +224,14 @@ document.addEventListener("DOMContentLoaded", () => {
       $.fancybox.close();
     });
   });
-  document.querySelector('.lk-entrance__submit').addEventListener("click", () => {
-    var input = document.querySelector('.ap-otp-input');
-    input.disabled = true;
-    input.disabled = false;
-    input.focus();
-  });
+  if (document.querySelector('.lk-entrance__submit')) {
+    document.querySelector('.lk-entrance__submit').addEventListener("click", () => {
+      var input = document.querySelector('.ap-otp-input');
+      input.disabled = true;
+      input.disabled = false;
+      input.focus();
+    });
+  }
   const inputs = document.querySelectorAll('.ap-otp-input');
   inputs.forEach((input, index) => {
     input.addEventListener('paste', function (ev) {
@@ -262,6 +264,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  if (document.querySelector('.course-chat__days')) {
+    const scrollContainer = document.querySelectorAll('.course-chat__days');
+    scrollContainer.forEach(el => {
+      el.addEventListener('scroll', function () {
+        const dateBlocks = document.querySelectorAll('.course-chat__date');
+        dateBlocks.forEach(dateBlock => {
+          const dateRect = dateBlock.getBoundingClientRect();
+          const containerRect = el.getBoundingClientRect();
+
+          // Если верхняя граница блока с датой находится слишком близко к верхней границе контейнера
+          if (dateRect.top < containerRect.top) {
+            dateBlock.style.opacity = "0"; // Удаление блока
+          } else {
+            dateBlock.style.opacity = "1";
+          }
+        });
+      });
+    });
+  }
 });
 
 /***/ }),

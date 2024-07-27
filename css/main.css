@@ -192,6 +192,11 @@ a {
   line-height: 155%;
   color: #000;
 }
+@media (max-width: 576px) {
+  .lk-title-h1 {
+    line-height: 125%;
+  }
+}
 
 .lk-title-h2 {
   font-family: var(--second-family);
@@ -251,6 +256,61 @@ a {
 }
 .lk-btn-yelow span {
   position: relative;
+}
+@media (any-hover: hover) {
+  .lk-btn-yelow:hover {
+    -webkit-transition: all 0.5s ease !important;
+    -o-transition: all 0.5s ease !important;
+    transition: all 0.5s ease !important;
+    color: #ffffff !important;
+  }
+  .lk-btn-yelow:hover::after {
+    opacity: 1;
+  }
+  .lk-btn-yelow:hover::before {
+    opacity: 1;
+  }
+}
+@media (min-width: 576px) {
+  .lk-btn-yelow:active {
+    background-image: url(../img/Chernaya-active.svg);
+  }
+  .lk-btn-yelow:active span {
+    color: #b3b3b3;
+  }
+}
+.lk-btn-yelow::after {
+  display: block;
+  content: "";
+  top: 2px;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  -webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.lk-btn-yelow::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/Chernaya.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .lk-btn-black {
@@ -647,6 +707,7 @@ a {
   font-size: 16px;
   color: #2a2a2c;
   margin: 0;
+  max-width: 160px;
 }
 
 .lk-accordion-estimate-actions {
@@ -798,8 +859,21 @@ a {
 
 .lk-close-modal-btn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 15px;
+  right: 12px;
+}
+.lk-close-modal-btn .mob {
+  display: none;
+}
+@media (max-width: 768px) {
+  .lk-close-modal-btn .mob {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  .lk-close-modal-btn .desk {
+    display: none;
+  }
 }
 @media (max-width: 768px) {
   .lk-close-modal-btn {
@@ -929,6 +1003,10 @@ a {
   }
 }
 
+.lk-modal-chat {
+  width: 100%;
+  max-width: 1220px;
+}
 .lk-modal-chat .course-chat__days-wrapper {
   border: 1px solid #c4c4c4;
   border-radius: 10px;
@@ -1649,7 +1727,7 @@ a {
 }
 @media (max-width: 576px) {
   .lk-header {
-    padding: 13px 0;
+    padding: 10px 0;
   }
 }
 .lk-header__logo {
@@ -1790,9 +1868,21 @@ a {
 @media (max-width: 576px) {
   .menu__logo {
     display: block;
-    padding-bottom: 13px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.096);
+    padding-bottom: 10px;
     margin-bottom: 20px;
+    position: relative;
+  }
+  .menu__logo::after {
+    display: block;
+    width: 100%;
+    content: "";
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: -webkit-gradient(linear, left top, right top, color-stop(-150%, #b2b2b2), to(white));
+    background: -o-linear-gradient(left, #b2b2b2 -150%, white);
+    background: linear-gradient(to right, #b2b2b2 -150%, white);
   }
   .menu__logo img {
     width: 137px;
@@ -1956,7 +2046,7 @@ a {
 }
 @media (max-width: 576px) {
   .lk-entrance__entry {
-    width: 80%;
+    width: 100%;
   }
 }
 .lk-entrance__title {
@@ -1989,6 +2079,12 @@ a {
     width: 100%;
   }
 }
+@media (max-width: 576px) {
+  .lk-entrance__img {
+    height: 375px;
+  }
+}
+
 .lk-access {
   margin-top: 30px;
 }
@@ -2194,6 +2290,12 @@ a {
   -ms-flex-direction: column;
   flex-direction: column;
   gap: 15px;
+  min-height: 205px;
+}
+@media (max-width: 1024px) {
+  .lk-panel__themes-list {
+    min-height: auto;
+  }
 }
 .lk-panel__theme-link {
   font-family: var(--second-family);
@@ -2270,6 +2372,11 @@ a {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+.lk-panel__chat-notification-more {
+  padding: 0 8px;
+  width: auto;
+  border-radius: 500px;
 }
 .lk-panel__my-chat {
   padding-bottom: 14px;
@@ -2414,7 +2521,7 @@ a {
   margin: 0 auto;
 }
 .lk__content .swiper {
-  padding: 30px 250px;
+  padding: 30px 380px;
   margin: -30px;
 }
 @media (max-width: 1400px) {
@@ -2444,6 +2551,16 @@ a {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+  }
+}
+@media (max-width: 576px) {
+  .lk__content .swiper-slide.swiper-slide-next {
+    opacity: 0.3;
+  }
+}
+@media (max-width: 576px) {
+  .lk__content .swiper-slide.swiper-slide-prev {
+    opacity: 0.3;
   }
 }
 .lk__content .swiper-slide .lk-swiper__slide {
