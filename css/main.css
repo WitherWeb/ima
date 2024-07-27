@@ -259,6 +259,7 @@ a {
 .lk-btn-yelow:focus {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 .lk-btn-yelow span {
   position: relative;
